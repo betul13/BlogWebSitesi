@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Özgeçmiş</title>
+  </head>
+  <body>
+    <h1>Özgeçmiş</h1>
+    <form method="post" action="{{ url_for('user') }}">
+      <label for="text">Metin:</label>
+      <input type="text" id="text" name="text"><br><br>
+      <input type="submit" value="Gönder">
+    </form>
+  </body>
+</html>
+<!---{% extends "layout.html" %}
+{% block body %}
+<h3>Kontrol Paneli</h3>
+<small>Hoşgeldin, {{session["username"]}}</small>
+<hr>
+<a href="/addresume" class = "btn btn-danger"> Özgeçmiş Ekle </a>
+{% if users.resume %}
+<table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">id</th>
+        <th scope="col">Kullanıcı Adı</th>
+        <th scope="col">Ad</th>
+        <th scope="col">Özgeçmiş</th>
+        <th scope="col"></th>
+        <th scope="col"></th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for user in users %}
+        <tr>
+            <th scope="row">{{user.id}}</th>
+            <td ><a href="/user/{{user.id}}"></a>{{user.username}}</td>
+            <td>{{user.name}}</td>
+            <td>{{user.resume}}</td>
+            
+          </tr>
+        {% endfor %}
+   
+    </tbody>
+  </table>
+{% else %}
+<div class="alert alert-danger">Henüz paylaşım yapmadınız.</div>
+{% endif %}
+{% endblock body%}

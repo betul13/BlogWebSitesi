@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3>Dosyalar</h3>
+<hr>
+{% if files %}
+<form action="/search" method="POST">
+  <input type="text" name = "keyword" class = "input-sm" placeholder="Ara..">
+  <button type="submit" class="btn btn-primary btn-sm" style = "">Search
+  </button>
+</form>
+<hr>
+<br>
+<ul class="list-group">
+    {% for file in files %}
+    <li class="list-group-item"><a href="file/{{file.id}}">{{file.title}}</a></li>
+    
+    {% endfor %}
+</ul>
+{% else %}
+<div class="alert alert-danger">Bu blokta henüz paylaşım yapılmadı</div>
+{% endif %}
+
+{% endblock body %}

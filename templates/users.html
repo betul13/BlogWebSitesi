@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+{% block body %}
+<h3>Kullanıcılar</h3>
+<hr>
+{% if users %}
+<ul class="list-group">
+    {% for user in users%}
+    <li class="list-group-item"><a href="user/{{user.id}}">{{user.name}}</a>
+
+    {% endfor %}
+</ul>
+{% else %}
+<div class="alert alert-danger">Bu profile henüz özgeçmiş eklenmedi.</div>
+{% endif %}
+
+{% endblock body %}

@@ -1,0 +1,15 @@
+{% extends "layout.html" %}
+{% block body %}
+{% if file %}
+<h4>{{file.title}}</h4>
+<hr>
+Yazar : {{file.author}}
+<hr>
+Tarih : {{file.created_date}}
+<hr>
+İçerik : {{file.content|safe}}
+<hr>
+{% else %}
+<div class="alert alert-warning">Böyle bir dosya yok !</div>
+{% endif %}
+{% endblock body %}
